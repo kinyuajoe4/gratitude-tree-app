@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "395515047188",
+    "project_id": "barakafarm-675d4",
+    "storage_bucket": "barakafarm-675d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395515047188:android:cf15ed08c6364fc4a5a601",
+        "android_client_info": {
+          "package_name": "com.flutterflow.baraka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395515047188-ts9eqlq27tdt9bd8nuhmk5uguj6epl4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.baraka",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "395515047188-cop7tj11nos4sd7mbg7k437jog33bf85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdhk7i4escvdDl3x3faFyOJVkyG1oAdFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395515047188-cop7tj11nos4sd7mbg7k437jog33bf85.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395515047188-5dcp97ck4osslvc62osje5ngboprut5r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.baraka"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395515047188:android:3ba538a903191a33a5a601",
+        "android_client_info": {
+          "package_name": "com.flutterflow.gratitude"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395515047188-cop7tj11nos4sd7mbg7k437jog33bf85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdhk7i4escvdDl3x3faFyOJVkyG1oAdFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395515047188-cop7tj11nos4sd7mbg7k437jog33bf85.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395515047188-5dcp97ck4osslvc62osje5ngboprut5r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.baraka"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395515047188:android:05783e3afb1137a4a5a601",
+        "android_client_info": {
+          "package_name": "com.flutterflow.healthai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395515047188-cop7tj11nos4sd7mbg7k437jog33bf85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdhk7i4escvdDl3x3faFyOJVkyG1oAdFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395515047188-cop7tj11nos4sd7mbg7k437jog33bf85.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395515047188-5dcp97ck4osslvc62osje5ngboprut5r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.baraka"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
