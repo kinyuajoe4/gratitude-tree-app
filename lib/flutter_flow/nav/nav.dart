@@ -279,9 +279,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => TokenpageWidget(),
         ),
         FFRoute(
-          name: 'demo',
-          path: '/demo',
-          builder: (context, params) => DemoWidget(),
+          name: 'learningpage',
+          path: '/learningpage',
+          builder: (context, params) => LearningpageWidget(),
         ),
         FFRoute(
           name: 'adminDashboard',
@@ -366,8 +366,147 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'fieldmaps',
           path: '/fieldmaps',
           builder: (context, params) => FieldmapsWidget(),
+        ),
+        FFRoute(
+          name: 'confirmcountry',
+          path: '/confirmcountry',
+          builder: (context, params) => ConfirmcountryWidget(
+            country: params.getParam('country', ParamType.String),
+            averageFootprint:
+                params.getParam('averageFootprint', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'searchcountriespage',
+          path: '/searchcountriespage',
+          builder: (context, params) => SearchcountriespageWidget(),
+        ),
+        FFRoute(
+          name: 'offseteachcountry',
+          path: '/offseteachcountry',
+          builder: (context, params) => OffseteachcountryWidget(
+            country: params.getParam('country', ParamType.String),
+            avarageFootprint:
+                params.getParam('avarageFootprint', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'chatsamplepage',
+          path: '/chatsamplepage',
+          builder: (context, params) => ChatsamplepageWidget(),
+        ),
+        FFRoute(
+          name: 'describediet',
+          path: '/describediet',
+          builder: (context, params) => DescribedietWidget(
+            footprintfrompreviouspae:
+                params.getParam('footprintfrompreviouspae', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describetravel',
+          path: '/describetravel',
+          builder: (context, params) => DescribetravelWidget(
+            footprintfromprevpage:
+                params.getParam('footprintfromprevpage', ParamType.double),
+            country: params.getParam('country', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'testpage',
+          path: '/testpage',
+          builder: (context, params) => TestpageWidget(),
+        ),
+        FFRoute(
+          name: 'describeVehiclemovement',
+          path: '/describeVehiclemovement',
+          builder: (context, params) => DescribeVehiclemovementWidget(
+            footprintfrompreviouspage:
+                params.getParam('footprintfrompreviouspage', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describeShopping',
+          path: '/describeShopping',
+          builder: (context, params) => DescribeShoppingWidget(
+            footprintfrompreviouspage:
+                params.getParam('footprintfrompreviouspage', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describeFuel',
+          path: '/describeFuel',
+          builder: (context, params) => DescribeFuelWidget(
+            footprintfrompreviouspage:
+                params.getParam('footprintfrompreviouspage', ParamType.double),
+            currentpagevalue:
+                params.getParam('currentpagevalue', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describeHome',
+          path: '/describeHome',
+          builder: (context, params) => DescribeHomeWidget(
+            footprintformpreviouspage:
+                params.getParam('footprintformpreviouspage', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describePeopleInyourHome',
+          path: '/describePeopleInyourHome',
+          builder: (context, params) => DescribePeopleInyourHomeWidget(
+            footprintfrompreviospage:
+                params.getParam('footprintfrompreviospage', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describeElectricity',
+          path: '/describeElectricity',
+          builder: (context, params) => DescribeElectricityWidget(
+            footprintfrompreviouspage:
+                params.getParam('footprintfrompreviouspage', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'describefinal',
+          path: '/describefinal',
+          builder: (context, params) => DescribefinalWidget(
+            footprintfrompreviospage:
+                params.getParam('footprintfrompreviospage', ParamType.double),
+            flying: params.getParam('flying', ParamType.double),
+            mobility: params.getParam('mobility', ParamType.double),
+            housing: params.getParam('housing', ParamType.double),
+            diet: params.getParam('diet', ParamType.double),
+            spending: params.getParam('spending', ParamType.double),
+          ),
+        ),
+        FFRoute(
+          name: 'registerpage',
+          path: '/registerpage',
+          builder: (context, params) => RegisterpageWidget(),
+        ),
+        FFRoute(
+          name: 'intro1',
+          path: '/intro1',
+          builder: (context, params) => Intro1Widget(),
+        ),
+        FFRoute(
+          name: 'activitiesCopy',
+          path: '/activitiesCopy',
+          builder: (context, params) => ActivitiesCopyWidget(),
+        ),
+        FFRoute(
+          name: 'selectProject',
+          path: '/selectProject',
+          builder: (context, params) => SelectProjectWidget(),
+        ),
+        FFRoute(
+          name: 'projectlist',
+          path: '/projectlist',
+          builder: (context, params) => ProjectlistWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -546,14 +685,10 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/logo-no-background.png',
-                      width: 350.0,
-                      height: 200.0,
-                      fit: BoxFit.contain,
-                    ),
+                  color: FlutterFlowTheme.of(context).background,
+                  child: Image.asset(
+                    'assets/images/cropped-cropped-fnblogo-1-removebg-preview.png',
+                    fit: BoxFit.fitWidth,
                   ),
                 )
               : page;
@@ -564,13 +699,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

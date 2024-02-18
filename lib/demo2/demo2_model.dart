@@ -69,8 +69,10 @@ class Demo2Model extends FlutterFlowModel<Demo2Widget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     personsNameFocusNode?.dispose();

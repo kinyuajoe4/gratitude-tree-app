@@ -116,8 +116,8 @@ class MytreesRecord extends FirestoreRecord {
           ? parent.collection('mytrees')
           : FirebaseFirestore.instance.collectionGroup('mytrees');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('mytrees').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('mytrees').doc(id);
 
   static Stream<MytreesRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => MytreesRecord.fromSnapshot(s));

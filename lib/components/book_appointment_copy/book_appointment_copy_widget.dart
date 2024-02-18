@@ -26,12 +26,12 @@ export 'book_appointment_copy_model.dart';
 
 class BookAppointmentCopyWidget extends StatefulWidget {
   const BookAppointmentCopyWidget({
-    Key? key,
+    super.key,
     this.userProfile,
     this.location,
     this.latitudeLongitude,
     this.treedetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
   final FFPlace? location;
@@ -39,7 +39,7 @@ class BookAppointmentCopyWidget extends StatefulWidget {
   final FielddetailsRecord? treedetails;
 
   @override
-  _BookAppointmentCopyWidgetState createState() =>
+  State<BookAppointmentCopyWidget> createState() =>
       _BookAppointmentCopyWidgetState();
 }
 
@@ -353,6 +353,8 @@ class _BookAppointmentCopyWidgetState extends State<BookAppointmentCopyWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(

@@ -24,10 +24,10 @@ import 'complete_profile_model.dart';
 export 'complete_profile_model.dart';
 
 class CompleteProfileWidget extends StatefulWidget {
-  const CompleteProfileWidget({Key? key}) : super(key: key);
+  const CompleteProfileWidget({super.key});
 
   @override
-  _CompleteProfileWidgetState createState() => _CompleteProfileWidgetState();
+  State<CompleteProfileWidget> createState() => _CompleteProfileWidgetState();
 }
 
 class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
@@ -288,6 +288,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'completeProfile',
@@ -757,7 +759,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: FlutterFlowRadioButton(
                                     options: ['Male', 'Female', 'Undisclosed']
                                         .toList(),

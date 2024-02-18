@@ -1,10 +1,15 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
+import '/custom_code/actions/index.dart' as actions;
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,16 +17,40 @@ import 'onboarding_model.dart';
 export 'onboarding_model.dart';
 
 class OnboardingWidget extends StatefulWidget {
-  const OnboardingWidget({Key? key}) : super(key: key);
+  const OnboardingWidget({super.key});
 
   @override
-  _OnboardingWidgetState createState() => _OnboardingWidgetState();
+  State<OnboardingWidget> createState() => _OnboardingWidgetState();
 }
 
-class _OnboardingWidgetState extends State<OnboardingWidget> {
+class _OnboardingWidgetState extends State<OnboardingWidget>
+    with TickerProviderStateMixin {
   late OnboardingModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 1960.ms,
+          duration: 1690.ms,
+          begin: Offset(-700.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+        ShakeEffect(
+          curve: Curves.easeInOut,
+          delay: 700.ms,
+          duration: 700.ms,
+          hz: 2,
+          offset: Offset(0.0, 0.0),
+          rotation: 0.087,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -49,476 +78,373 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'onboarding',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          body: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
+          body: Visibility(
+            visible: responsiveVisibility(
+              context: context,
+              tablet: false,
+              tabletLandscape: false,
+              desktop: false,
+            ),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Stack(
                 children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (Theme.of(context).brightness == Brightness.dark)
-                          Image.asset(
-                            'assets/images/logo-no-background.png',
-                            width: 170.0,
-                            height: 70.0,
-                            fit: BoxFit.fitWidth,
-                          ),
-                        if (!(Theme.of(context).brightness == Brightness.dark))
-                          Image.asset(
-                            'assets/images/logo-no-background.png',
-                            width: 170.0,
-                            height: 70.0,
-                            fit: BoxFit.fitWidth,
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                  SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Text(
-                          'Climate and Agri-tech company ',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .displayMedium
-                              .override(
-                                fontFamily: 'Poppins',
-                                color: FlutterFlowTheme.of(context).success,
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w600,
-                              ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 170.0, 0.0, 0.0),
+                          child: FlutterFlowVideoPlayer(
+                            path: 'assets/videos/sample1.mp4',
+                            videoType: VideoType.asset,
+                            width: double.infinity,
+                            height: double.infinity,
+                            autoPlay: true,
+                            looping: true,
+                            showControls: false,
+                            allowFullScreen: false,
+                            allowPlaybackSpeedMenu: false,
+                            pauseOnNavigate: false,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      height: MediaQuery.sizeOf(context).height * 0.6,
-                      child: Stack(
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 20.0),
-                            child: PageView(
-                              controller: _model.pageViewController ??=
-                                  PageController(initialPage: 0),
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Image.asset(
-                                            'assets/images/eco-services-center-img.png',
-                                            width: 320.0,
-                                            height: 250.0,
-                                            fit: BoxFit.scaleDown,
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 40.0),
-                                                child: Text(
-                                                  'Tree Suitability Maps',
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .success,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                'Always have your Trees at your fingertips.',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color:
-                                                              Color(0xFF0C8D00),
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  width: 100.0,
-                                  height: 70.0,
-                                  decoration: BoxDecoration(),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 30.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Image.asset(
-                                              'assets/images/rinrqdabT-removebg-preview.png',
-                                              width: 300.0,
-                                              height: 200.0,
-                                              fit: BoxFit.fill,
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 20.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  'Tree Growing and Monitoring',
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .success,
-                                                        fontSize: 30.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 20.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Text(
-                                                  'easily report on the growth of the trees to ensure the tree planted survives to grow on their own.',
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color:
-                                                            Color(0xFF25E31E),
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                  FlutterFlowVideoPlayer(
+                    path: 'assets/videos/sample1.mp4',
+                    videoType: VideoType.asset,
+                    width: double.infinity,
+                    height: double.infinity,
+                    aspectRatio: 0.56,
+                    autoPlay: true,
+                    looping: true,
+                    showControls: false,
+                    allowFullScreen: false,
+                    allowPlaybackSpeedMenu: false,
+                    pauseOnNavigate: false,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 300.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              SelectionArea(
+                                  child: AutoSizeText(
+                                'KARBON CURE',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: 'Outfit',
+                                      color:
+                                          FlutterFlowTheme.of(context).success,
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
+                              )),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    3.0, 0.0, 0.0, 0.0),
+                                child: RichText(
+                                  textScaleFactor:
+                                      MediaQuery.of(context).textScaleFactor,
+                                  text: TextSpan(
                                     children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 30.0),
-                                            child: Image.asset(
-                                              'assets/images/rTjzR4yTR-removebg-preview.png',
-                                              width: 300.0,
-                                              height: 250.0,
-                                              fit: BoxFit.fitHeight,
+                                      TextSpan(
+                                        text: 'Environment ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              color: Color(0xFF090B0B),
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                          ),
-                                        ],
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                'Carbon Asset Management',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displaySmall
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .success,
-                                                          fontSize: 30.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
+                                      TextSpan(
+                                        text: ' Custodians',
+                                        style: TextStyle(
+                                          color: Color(0xFFF1F4F8),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                'Measuring, managing, and mitigating the carbon emissions of an organization or asset.',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color:
-                                                              Color(0xFF25E31E),
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                      )
                                     ],
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          fontSize: 12.0,
+                                        ),
                                   ),
                                 ),
-                                Container(
-                                  width: 100.0,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Image.asset(
-                                            'assets/images/3906-removebg-preview.png',
-                                            width: 320.0,
-                                            height: 250.0,
-                                            fit: BoxFit.scaleDown,
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 40.0),
-                                                child: Text(
-                                                  'Seedlings Grafting and Naturing',
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .success,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 20.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                'Management of tree seedlings during their early growth stages.',
-                                                textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color:
-                                                              Color(0xFF0C8D00),
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Align(
-                            alignment: AlignmentDirectional(0.00, 1.00),
-                            child: Padding(
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(8.0, 80.0, 8.0, 8.0),
+                    child: Container(
+                      width: 300.0,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: smooth_page_indicator.SmoothPageIndicator(
-                                controller: _model.pageViewController ??=
-                                    PageController(initialPage: 0),
-                                count: 4,
-                                axisDirection: Axis.horizontal,
-                                onDotClicked: (i) async {
-                                  await _model.pageViewController!
-                                      .animateToPage(
-                                    i,
-                                    duration: Duration(milliseconds: 500),
-                                    curve: Curves.ease,
-                                  );
-                                },
-                                effect:
-                                    smooth_page_indicator.ExpandingDotsEffect(
-                                  expansionFactor: 2.0,
-                                  spacing: 8.0,
-                                  radius: 16.0,
-                                  dotWidth: 16.0,
-                                  dotHeight: 4.0,
-                                  dotColor: Color(0x8AC6CAD4),
-                                  activeDotColor:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  paintStyle: PaintingStyle.fill,
+                                  12.0, 12.0, 12.0, 12.0),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: RichText(
+                                  textScaleFactor:
+                                      MediaQuery.of(context).textScaleFactor,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Need help?',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                      ),
+                                      TextSpan(
+                                        text: 'Running into a problem? ',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: 'Talk to us.',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: '',
+                                        style: TextStyle(),
+                                      )
+                                    ],
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
                                 ),
                               ),
                             ),
+                          ],
+                        ),
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation']!),
+                  ),
+                  if (FFAppState().currentPageValue == null)
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 635.0, 10.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed('confirmcountry');
+                        },
+                        text: 'Next',
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 65.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).success,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Outfit',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                    ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 760.0, 0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('loginPage');
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Login',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  fontSize: 20.0,
+                                ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 720.0, 0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('loginPage');
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Already a Member?',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (FFAppState().currentPageValue != null)
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          10.0, 635.0, 10.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('loginPage');
+                          _model.mul1 = await actions.multiplyTwoDoubleNumbers(
+                            0.2,
+                            FFAppState().currentPageValue,
+                          );
+                          _model.mul2 = await actions.multiplyTwoDoubleNumbers(
+                            0.4,
+                            FFAppState().currentPageValue,
+                          );
+                          _model.mul3 = await actions.multiplyTwoDoubleNumbers(
+                            0.4,
+                            FFAppState().currentPageValue,
+                          );
+                          _model.mul4 = await actions.multiplyTwoDoubleNumbers(
+                            0.25,
+                            FFAppState().currentPageValue,
+                          );
+                          _model.mul5 = await actions.multiplyTwoDoubleNumbers(
+                            0.35,
+                            FFAppState().currentPageValue,
+                          );
+
+                          context.pushNamed(
+                            'describefinal',
+                            queryParameters: {
+                              'footprintfrompreviospage': serializeParam(
+                                0.0,
+                                ParamType.double,
+                              ),
+                              'flying': serializeParam(
+                                _model.mul1,
+                                ParamType.double,
+                              ),
+                              'mobility': serializeParam(
+                                _model.mul2,
+                                ParamType.double,
+                              ),
+                              'housing': serializeParam(
+                                _model.mul3,
+                                ParamType.double,
+                              ),
+                              'diet': serializeParam(
+                                _model.mul4,
+                                ParamType.double,
+                              ),
+                              'spending': serializeParam(
+                                _model.mul5,
+                                ParamType.double,
+                              ),
+                            }.withoutNulls,
+                          );
+
+                          setState(() {});
                         },
-                        text: 'Continue',
+                        text: 'Complete Set up.',
                         options: FFButtonOptions(
-                          width: 200.0,
-                          height: 40.0,
+                          width: double.infinity,
+                          height: 65.0,
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                              24.0, 0.0, 24.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFF25E31E),
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: 'Outfit',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
-                          elevation: 2.0,
+                          color: FlutterFlowTheme.of(context).success,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Outfit',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 3.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(40.0),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                ],
               ),
-            ],
+            ),
           ),
         ));
   }

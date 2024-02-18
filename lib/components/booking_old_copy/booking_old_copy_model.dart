@@ -46,8 +46,10 @@ class BookingOldCopyModel extends FlutterFlowModel<BookingOldCopyWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     emailFocusNode?.dispose();
     emailController?.dispose();

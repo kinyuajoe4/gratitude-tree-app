@@ -15,10 +15,10 @@ import 'maps_bottom_sheet_copy_model.dart';
 export 'maps_bottom_sheet_copy_model.dart';
 
 class MapsBottomSheetCopyWidget extends StatefulWidget {
-  const MapsBottomSheetCopyWidget({Key? key}) : super(key: key);
+  const MapsBottomSheetCopyWidget({super.key});
 
   @override
-  _MapsBottomSheetCopyWidgetState createState() =>
+  State<MapsBottomSheetCopyWidget> createState() =>
       _MapsBottomSheetCopyWidgetState();
 }
 
@@ -52,6 +52,7 @@ class _MapsBottomSheetCopyWidgetState extends State<MapsBottomSheetCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,

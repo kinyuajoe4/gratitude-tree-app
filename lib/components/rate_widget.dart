@@ -14,10 +14,10 @@ import 'rate_model.dart';
 export 'rate_model.dart';
 
 class RateWidget extends StatefulWidget {
-  const RateWidget({Key? key}) : super(key: key);
+  const RateWidget({super.key});
 
   @override
-  _RateWidgetState createState() => _RateWidgetState();
+  State<RateWidget> createState() => _RateWidgetState();
 }
 
 class _RateWidgetState extends State<RateWidget> {
@@ -49,6 +49,8 @@ class _RateWidgetState extends State<RateWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
       child: Container(
@@ -66,7 +68,7 @@ class _RateWidgetState extends State<RateWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+          padding: EdgeInsets.all(4.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

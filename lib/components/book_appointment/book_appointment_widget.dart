@@ -26,12 +26,12 @@ export 'book_appointment_model.dart';
 
 class BookAppointmentWidget extends StatefulWidget {
   const BookAppointmentWidget({
-    Key? key,
+    super.key,
     this.userProfile,
     this.location,
     this.latitudeLongitude,
     this.treedetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
   final FFPlace? location;
@@ -39,7 +39,7 @@ class BookAppointmentWidget extends StatefulWidget {
   final FielddetailsRecord? treedetails;
 
   @override
-  _BookAppointmentWidgetState createState() => _BookAppointmentWidgetState();
+  State<BookAppointmentWidget> createState() => _BookAppointmentWidgetState();
 }
 
 class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
@@ -300,6 +300,8 @@ class _BookAppointmentWidgetState extends State<BookAppointmentWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(

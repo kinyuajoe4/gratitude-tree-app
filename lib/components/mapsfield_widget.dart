@@ -12,10 +12,10 @@ import 'mapsfield_model.dart';
 export 'mapsfield_model.dart';
 
 class MapsfieldWidget extends StatefulWidget {
-  const MapsfieldWidget({Key? key}) : super(key: key);
+  const MapsfieldWidget({super.key});
 
   @override
-  _MapsfieldWidgetState createState() => _MapsfieldWidgetState();
+  State<MapsfieldWidget> createState() => _MapsfieldWidgetState();
 }
 
 class _MapsfieldWidgetState extends State<MapsfieldWidget> {
@@ -44,6 +44,8 @@ class _MapsfieldWidgetState extends State<MapsfieldWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
       child: Stack(

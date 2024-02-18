@@ -13,10 +13,10 @@ import 'web_nav3_model.dart';
 export 'web_nav3_model.dart';
 
 class WebNav3Widget extends StatefulWidget {
-  const WebNav3Widget({Key? key}) : super(key: key);
+  const WebNav3Widget({super.key});
 
   @override
-  _WebNav3WidgetState createState() => _WebNav3WidgetState();
+  State<WebNav3Widget> createState() => _WebNav3WidgetState();
 }
 
 class _WebNav3WidgetState extends State<WebNav3Widget>
@@ -96,6 +96,8 @@ class _WebNav3WidgetState extends State<WebNav3Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Visibility(
       visible: responsiveVisibility(
         context: context,
@@ -161,8 +163,7 @@ class _WebNav3WidgetState extends State<WebNav3Widget>
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -202,8 +203,7 @@ class _WebNav3WidgetState extends State<WebNav3Widget>
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -255,8 +255,7 @@ class _WebNav3WidgetState extends State<WebNav3Widget>
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -308,8 +307,7 @@ class _WebNav3WidgetState extends State<WebNav3Widget>
                       shape: BoxShape.rectangle,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [

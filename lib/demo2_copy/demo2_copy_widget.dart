@@ -21,16 +21,16 @@ export 'demo2_copy_model.dart';
 
 class Demo2CopyWidget extends StatefulWidget {
   const Demo2CopyWidget({
-    Key? key,
+    super.key,
     this.treedetails,
     this.userorof,
-  }) : super(key: key);
+  });
 
   final FielddetailsRecord? treedetails;
   final DocumentReference? userorof;
 
   @override
-  _Demo2CopyWidgetState createState() => _Demo2CopyWidgetState();
+  State<Demo2CopyWidget> createState() => _Demo2CopyWidgetState();
 }
 
 class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
@@ -125,6 +125,8 @@ class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<MytreesRecord>>(
       stream: queryMytreesRecord(
         parent: widget.treedetails?.reference,
@@ -179,8 +181,7 @@ class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 17.0, 0.0),
                         child: AlignedTooltip(
                           content: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 4.0, 4.0, 4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: Text(
                                 'Add Tree',
                                 style: FlutterFlowTheme.of(context).bodyLarge,
@@ -281,6 +282,9 @@ class _Demo2CopyWidgetState extends State<Demo2CopyWidget>
                               ),
                             ],
                             controller: _model.tabBarController,
+                            onTap: (i) async {
+                              [() async {}, () async {}][i]();
+                            },
                           ),
                         ),
                         Expanded(

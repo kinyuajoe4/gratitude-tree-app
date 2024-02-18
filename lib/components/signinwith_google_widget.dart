@@ -10,10 +10,10 @@ import 'signinwith_google_model.dart';
 export 'signinwith_google_model.dart';
 
 class SigninwithGoogleWidget extends StatefulWidget {
-  const SigninwithGoogleWidget({Key? key}) : super(key: key);
+  const SigninwithGoogleWidget({super.key});
 
   @override
-  _SigninwithGoogleWidgetState createState() => _SigninwithGoogleWidgetState();
+  State<SigninwithGoogleWidget> createState() => _SigninwithGoogleWidgetState();
 }
 
 class _SigninwithGoogleWidgetState extends State<SigninwithGoogleWidget> {
@@ -42,15 +42,17 @@ class _SigninwithGoogleWidgetState extends State<SigninwithGoogleWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: 230.0,
         height: 44.0,
         child: Stack(
           children: [
             Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
@@ -82,7 +84,7 @@ class _SigninwithGoogleWidgetState extends State<SigninwithGoogleWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.83, 0.00),
+              alignment: AlignmentDirectional(-0.83, 0.0),
               child: Container(
                 width: 22.0,
                 height: 22.0,

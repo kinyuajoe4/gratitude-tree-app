@@ -24,10 +24,12 @@ class CarbonCalculatorModel extends FlutterFlowModel<CarbonCalculatorWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

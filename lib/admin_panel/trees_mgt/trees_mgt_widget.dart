@@ -10,10 +10,10 @@ import 'trees_mgt_model.dart';
 export 'trees_mgt_model.dart';
 
 class TreesMgtWidget extends StatefulWidget {
-  const TreesMgtWidget({Key? key}) : super(key: key);
+  const TreesMgtWidget({super.key});
 
   @override
-  _TreesMgtWidgetState createState() => _TreesMgtWidgetState();
+  State<TreesMgtWidget> createState() => _TreesMgtWidgetState();
 }
 
 class _TreesMgtWidgetState extends State<TreesMgtWidget> {
@@ -46,6 +46,8 @@ class _TreesMgtWidgetState extends State<TreesMgtWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'treesMgt',

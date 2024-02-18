@@ -10,10 +10,10 @@ import 'display_model.dart';
 export 'display_model.dart';
 
 class DisplayWidget extends StatefulWidget {
-  const DisplayWidget({Key? key}) : super(key: key);
+  const DisplayWidget({super.key});
 
   @override
-  _DisplayWidgetState createState() => _DisplayWidgetState();
+  State<DisplayWidget> createState() => _DisplayWidgetState();
 }
 
 class _DisplayWidgetState extends State<DisplayWidget> {
@@ -42,6 +42,8 @@ class _DisplayWidgetState extends State<DisplayWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +78,7 @@ class _DisplayWidgetState extends State<DisplayWidget> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+              padding: EdgeInsets.all(12.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "Gratitude")
+set(BINARY_NAME "Furaha-Baraka")
 set(APPLICATION_ID "com.flutterflow.gratitude")
 
 cmake_policy(SET CMP0063 NEW)

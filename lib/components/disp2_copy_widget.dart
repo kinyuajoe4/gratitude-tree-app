@@ -14,10 +14,10 @@ import 'disp2_copy_model.dart';
 export 'disp2_copy_model.dart';
 
 class Disp2CopyWidget extends StatefulWidget {
-  const Disp2CopyWidget({Key? key}) : super(key: key);
+  const Disp2CopyWidget({super.key});
 
   @override
-  _Disp2CopyWidgetState createState() => _Disp2CopyWidgetState();
+  State<Disp2CopyWidget> createState() => _Disp2CopyWidgetState();
 }
 
 class _Disp2CopyWidgetState extends State<Disp2CopyWidget>
@@ -69,6 +69,8 @@ class _Disp2CopyWidgetState extends State<Disp2CopyWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return InkWell(
       splashColor: Colors.transparent,
       focusColor: Colors.transparent,
@@ -111,8 +113,7 @@ class _Disp2CopyWidgetState extends State<Disp2CopyWidget>
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
+                      padding: EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

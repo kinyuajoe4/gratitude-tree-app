@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -20,14 +21,14 @@ export 'profile_page_model.dart';
 
 class ProfilePageWidget extends StatefulWidget {
   const ProfilePageWidget({
-    Key? key,
+    super.key,
     this.userProfile,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
 
   @override
-  _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
+  State<ProfilePageWidget> createState() => _ProfilePageWidgetState();
 }
 
 class _ProfilePageWidgetState extends State<ProfilePageWidget>
@@ -98,6 +99,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(currentUserReference!),
@@ -207,9 +210,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               BorderRadius.circular(40.0),
                                         ),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  2.0, 2.0, 2.0, 2.0),
+                                          padding: EdgeInsets.all(2.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Container(
                                               width: 60.0,
@@ -431,7 +432,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.95, 0.00),
+                                                                  0.95, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -451,7 +452,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -0.85, 0.00),
+                                                                  -0.85, 0.0),
                                                           child: Container(
                                                             width: 36.0,
                                                             height: 36.0,
@@ -565,7 +566,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -0.90, 0.00),
+                                                                  -0.9, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -587,7 +588,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.90, 0.00),
+                                                                  0.9, 0.0),
                                                           child: Container(
                                                             width: 36.0,
                                                             height: 36.0,
@@ -651,9 +652,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              context.pushNamed('adminDashboard');
+                              unawaited(
+                                () async {
+                                  await launchURL(
+                                      'https://www.google.com/maps/d/u/0/viewer?mid=1fKhb1fb5IHxCrDRopOGCdqHovIHs_DA&ll=14.063230070744112%2C56.5712243&z=4');
+                                }(),
+                              );
                             },
-                            text: 'Admin Panel',
+                            text: 'View Sites',
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(

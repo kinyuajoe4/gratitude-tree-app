@@ -17,13 +17,13 @@ export 'editfielddetails_model.dart';
 
 class EditfielddetailsWidget extends StatefulWidget {
   const EditfielddetailsWidget({
-    Key? key,
+    super.key,
     this.userProfile,
     this.location,
     this.fielddetails,
     this.treederails,
     this.fieldtrees,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
   final FFPlace? location;
@@ -32,7 +32,7 @@ class EditfielddetailsWidget extends StatefulWidget {
   final MytreesRecord? fieldtrees;
 
   @override
-  _EditfielddetailsWidgetState createState() => _EditfielddetailsWidgetState();
+  State<EditfielddetailsWidget> createState() => _EditfielddetailsWidgetState();
 }
 
 class _EditfielddetailsWidgetState extends State<EditfielddetailsWidget> {
@@ -89,6 +89,8 @@ class _EditfielddetailsWidgetState extends State<EditfielddetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: MediaQuery.sizeOf(context).height * 1.0,

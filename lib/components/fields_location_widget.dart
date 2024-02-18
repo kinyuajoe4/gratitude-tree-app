@@ -12,14 +12,14 @@ export 'fields_location_model.dart';
 
 class FieldsLocationWidget extends StatefulWidget {
   const FieldsLocationWidget({
-    Key? key,
+    super.key,
     this.fieldlocation,
-  }) : super(key: key);
+  });
 
   final LatLng? fieldlocation;
 
   @override
-  _FieldsLocationWidgetState createState() => _FieldsLocationWidgetState();
+  State<FieldsLocationWidget> createState() => _FieldsLocationWidgetState();
 }
 
 class _FieldsLocationWidgetState extends State<FieldsLocationWidget> {
@@ -48,8 +48,10 @@ class _FieldsLocationWidgetState extends State<FieldsLocationWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+      padding: EdgeInsets.all(16.0),
       child: StreamBuilder<List<FielddetailsRecord>>(
         stream: queryFielddetailsRecord(
           queryBuilder: (fielddetailsRecord) => fielddetailsRecord.where(

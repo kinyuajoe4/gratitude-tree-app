@@ -14,10 +14,10 @@ import 'tokenpage_model.dart';
 export 'tokenpage_model.dart';
 
 class TokenpageWidget extends StatefulWidget {
-  const TokenpageWidget({Key? key}) : super(key: key);
+  const TokenpageWidget({super.key});
 
   @override
-  _TokenpageWidgetState createState() => _TokenpageWidgetState();
+  State<TokenpageWidget> createState() => _TokenpageWidgetState();
 }
 
 class _TokenpageWidgetState extends State<TokenpageWidget>
@@ -156,6 +156,8 @@ class _TokenpageWidgetState extends State<TokenpageWidget>
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'tokenpage',
@@ -312,8 +314,7 @@ class _TokenpageWidgetState extends State<TokenpageWidget>
                               animationsMap['containerOnPageLoadAnimation2']!),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
+                          padding: EdgeInsets.all(16.0),
                           child: Container(
                             width: double.infinity,
                             constraints: BoxConstraints(

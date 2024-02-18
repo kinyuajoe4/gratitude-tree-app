@@ -13,10 +13,10 @@ import 'side_nav_model.dart';
 export 'side_nav_model.dart';
 
 class SideNavWidget extends StatefulWidget {
-  const SideNavWidget({Key? key}) : super(key: key);
+  const SideNavWidget({super.key});
 
   @override
-  _SideNavWidgetState createState() => _SideNavWidgetState();
+  State<SideNavWidget> createState() => _SideNavWidgetState();
 }
 
 class _SideNavWidgetState extends State<SideNavWidget>
@@ -69,6 +69,8 @@ class _SideNavWidgetState extends State<SideNavWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Visibility(
       visible: responsiveVisibility(
         context: context,
@@ -156,8 +158,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    2.0, 2.0, 2.0, 2.0),
+                                padding: EdgeInsets.all(2.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: CachedNetworkImage(
@@ -489,14 +490,12 @@ class _SideNavWidgetState extends State<SideNavWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  2.0, 2.0, 2.0, 2.0),
+                              padding: EdgeInsets.all(2.0),
                               child: Stack(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 children: [
                                   Align(
-                                    alignment:
-                                        AlignmentDirectional(-0.90, 0.00),
+                                    alignment: AlignmentDirectional(-0.9, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           6.0, 0.0, 0.0, 0.0),
@@ -509,7 +508,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 6.0, 0.0),
@@ -522,7 +521,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(1.00, 0.00),
+                                    alignment: AlignmentDirectional(1.0, 0.0),
                                     child: Container(
                                       width: 36.0,
                                       height: 36.0,

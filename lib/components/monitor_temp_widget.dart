@@ -22,14 +22,14 @@ export 'monitor_temp_model.dart';
 
 class MonitorTempWidget extends StatefulWidget {
   const MonitorTempWidget({
-    Key? key,
+    super.key,
     this.location,
-  }) : super(key: key);
+  });
 
   final HospitalsRecord? location;
 
   @override
-  _MonitorTempWidgetState createState() => _MonitorTempWidgetState();
+  State<MonitorTempWidget> createState() => _MonitorTempWidgetState();
 }
 
 class _MonitorTempWidgetState extends State<MonitorTempWidget>
@@ -119,6 +119,8 @@ class _MonitorTempWidgetState extends State<MonitorTempWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
       child: Column(
@@ -154,6 +156,9 @@ class _MonitorTempWidgetState extends State<MonitorTempWidget>
                 ),
               ],
               controller: _model.tabBarController,
+              onTap: (i) async {
+                [() async {}, () async {}][i]();
+              },
             ),
           ),
           Expanded(

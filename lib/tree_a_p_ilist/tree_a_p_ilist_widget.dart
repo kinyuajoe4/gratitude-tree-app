@@ -15,10 +15,10 @@ import 'tree_a_p_ilist_model.dart';
 export 'tree_a_p_ilist_model.dart';
 
 class TreeAPIlistWidget extends StatefulWidget {
-  const TreeAPIlistWidget({Key? key}) : super(key: key);
+  const TreeAPIlistWidget({super.key});
 
   @override
-  _TreeAPIlistWidgetState createState() => _TreeAPIlistWidgetState();
+  State<TreeAPIlistWidget> createState() => _TreeAPIlistWidgetState();
 }
 
 class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
@@ -54,6 +54,8 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'TreeAPIlist',
@@ -93,8 +95,7 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    2.0, 2.0, 2.0, 2.0),
+                                padding: EdgeInsets.all(2.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(50.0),
                                   child: Image.network(
@@ -319,9 +320,7 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
                                             ),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -347,7 +346,7 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                1.00, -1.00),
+                                                                1.0, -1.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -401,16 +400,14 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
                                                                               2.0,
                                                                         ),
                                                                       ),
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            2.0,
-                                                                            2.0,
-                                                                            2.0,
-                                                                            2.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(2.0),
                                                                         child:
                                                                             Icon(
                                                                           Icons
@@ -605,9 +602,7 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -638,8 +633,8 @@ class _TreeAPIlistWidgetState extends State<TreeAPIlistWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      1.00,
-                                                                      -1.00),
+                                                                      1.0,
+                                                                      -1.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional

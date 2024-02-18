@@ -12,10 +12,10 @@ import 'visitation_tab_model.dart';
 export 'visitation_tab_model.dart';
 
 class VisitationTabWidget extends StatefulWidget {
-  const VisitationTabWidget({Key? key}) : super(key: key);
+  const VisitationTabWidget({super.key});
 
   @override
-  _VisitationTabWidgetState createState() => _VisitationTabWidgetState();
+  State<VisitationTabWidget> createState() => _VisitationTabWidgetState();
 }
 
 class _VisitationTabWidgetState extends State<VisitationTabWidget> {
@@ -48,6 +48,8 @@ class _VisitationTabWidgetState extends State<VisitationTabWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'visitationTab',

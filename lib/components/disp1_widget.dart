@@ -13,10 +13,10 @@ import 'disp1_model.dart';
 export 'disp1_model.dart';
 
 class Disp1Widget extends StatefulWidget {
-  const Disp1Widget({Key? key}) : super(key: key);
+  const Disp1Widget({super.key});
 
   @override
-  _Disp1WidgetState createState() => _Disp1WidgetState();
+  State<Disp1Widget> createState() => _Disp1WidgetState();
 }
 
 class _Disp1WidgetState extends State<Disp1Widget>
@@ -68,6 +68,8 @@ class _Disp1WidgetState extends State<Disp1Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 156.0,
       height: 220.0,
@@ -102,8 +104,7 @@ class _Disp1WidgetState extends State<Disp1Widget>
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

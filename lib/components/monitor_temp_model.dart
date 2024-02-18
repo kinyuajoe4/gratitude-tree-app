@@ -35,8 +35,10 @@ class MonitorTempModel extends FlutterFlowModel<MonitorTempWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     tabBarController?.dispose();
   }

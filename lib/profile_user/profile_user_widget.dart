@@ -16,12 +16,12 @@ export 'profile_user_model.dart';
 
 class ProfileUserWidget extends StatefulWidget {
   const ProfileUserWidget({
-    Key? key,
+    super.key,
     required this.username,
     required this.useremail,
     required this.location,
     required this.photo,
-  }) : super(key: key);
+  });
 
   final String? username;
   final String? useremail;
@@ -29,7 +29,7 @@ class ProfileUserWidget extends StatefulWidget {
   final String? photo;
 
   @override
-  _ProfileUserWidgetState createState() => _ProfileUserWidgetState();
+  State<ProfileUserWidget> createState() => _ProfileUserWidgetState();
 }
 
 class _ProfileUserWidgetState extends State<ProfileUserWidget>
@@ -64,6 +64,8 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'profileUser',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -96,7 +98,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
               elevation: 0.0,
             ),
             body: Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -155,10 +157,9 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                             shape: BoxShape.circle,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 4.0, 4.0, 4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: Container(
                                 width: 100.0,
                                 height: 100.0,
@@ -168,8 +169,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                                   shape: BoxShape.circle,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 4.0, 4.0, 4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(50.0),
                                     child: Image.network(
@@ -294,8 +294,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -310,8 +309,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                                           ),
                                     ),
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
@@ -340,9 +338,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                                                     BorderRadius.circular(24.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 12.0, 12.0, 12.0),
+                                                padding: EdgeInsets.all(12.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -402,9 +398,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                                                     BorderRadius.circular(24.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 12.0, 12.0, 12.0),
+                                                padding: EdgeInsets.all(12.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -464,9 +458,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                                                     BorderRadius.circular(24.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 12.0, 12.0, 12.0),
+                                                padding: EdgeInsets.all(12.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -526,9 +518,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget>
                                                     BorderRadius.circular(24.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 12.0, 12.0, 12.0),
+                                                padding: EdgeInsets.all(12.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,

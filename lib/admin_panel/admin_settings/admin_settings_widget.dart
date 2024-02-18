@@ -15,10 +15,10 @@ import 'admin_settings_model.dart';
 export 'admin_settings_model.dart';
 
 class AdminSettingsWidget extends StatefulWidget {
-  const AdminSettingsWidget({Key? key}) : super(key: key);
+  const AdminSettingsWidget({super.key});
 
   @override
-  _AdminSettingsWidgetState createState() => _AdminSettingsWidgetState();
+  State<AdminSettingsWidget> createState() => _AdminSettingsWidgetState();
 }
 
 class _AdminSettingsWidgetState extends State<AdminSettingsWidget>
@@ -223,6 +223,8 @@ class _AdminSettingsWidgetState extends State<AdminSettingsWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'adminSettings',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -329,8 +331,7 @@ class _AdminSettingsWidgetState extends State<AdminSettingsWidget>
                         ),
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
+                        padding: EdgeInsets.all(2.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [

@@ -15,6 +15,7 @@ import 'schema/hospitals_record.dart';
 import 'schema/tree_library_record.dart';
 import 'schema/fielddetails_record.dart';
 import 'schema/mytrees_record.dart';
+import 'schema/countries_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -32,6 +33,7 @@ export 'schema/hospitals_record.dart';
 export 'schema/tree_library_record.dart';
 export 'schema/fielddetails_record.dart';
 export 'schema/mytrees_record.dart';
+export 'schema/countries_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -401,6 +403,43 @@ Future<List<MytreesRecord>> queryMytreesRecordOnce({
     queryCollectionOnce(
       MytreesRecord.collection(parent),
       MytreesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query CountriesRecords (as a Stream and as a Future).
+Future<int> queryCountriesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CountriesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CountriesRecord>> queryCountriesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CountriesRecord.collection,
+      CountriesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CountriesRecord>> queryCountriesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CountriesRecord.collection,
+      CountriesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

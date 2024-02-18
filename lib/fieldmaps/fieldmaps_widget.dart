@@ -10,10 +10,10 @@ import 'fieldmaps_model.dart';
 export 'fieldmaps_model.dart';
 
 class FieldmapsWidget extends StatefulWidget {
-  const FieldmapsWidget({Key? key}) : super(key: key);
+  const FieldmapsWidget({super.key});
 
   @override
-  _FieldmapsWidgetState createState() => _FieldmapsWidgetState();
+  State<FieldmapsWidget> createState() => _FieldmapsWidgetState();
 }
 
 class _FieldmapsWidgetState extends State<FieldmapsWidget> {
@@ -46,6 +46,8 @@ class _FieldmapsWidgetState extends State<FieldmapsWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'fieldmaps',

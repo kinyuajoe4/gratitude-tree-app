@@ -16,14 +16,14 @@ export 'review_model.dart';
 
 class ReviewWidget extends StatefulWidget {
   const ReviewWidget({
-    Key? key,
+    super.key,
     this.commentdetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? commentdetails;
 
   @override
-  _ReviewWidgetState createState() => _ReviewWidgetState();
+  State<ReviewWidget> createState() => _ReviewWidgetState();
 }
 
 class _ReviewWidgetState extends State<ReviewWidget> {
@@ -59,6 +59,8 @@ class _ReviewWidgetState extends State<ReviewWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'review',
@@ -219,8 +221,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                         borderRadius: BorderRadius.circular(16.0),
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                        padding: EdgeInsets.all(4.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -271,8 +272,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                         borderRadius: BorderRadius.circular(16.0),
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                        padding: EdgeInsets.all(4.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -521,8 +521,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 4.0, 4.0, 4.0),
+                                    padding: EdgeInsets.all(4.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -597,9 +596,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(2.0, 2.0,
-                                                                2.0, 2.0),
+                                                        EdgeInsets.all(2.0),
                                                     child: Container(
                                                       width: 50.0,
                                                       height: 50.0,

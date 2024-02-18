@@ -16,10 +16,10 @@ import 'carbon_calculator_model.dart';
 export 'carbon_calculator_model.dart';
 
 class CarbonCalculatorWidget extends StatefulWidget {
-  const CarbonCalculatorWidget({Key? key}) : super(key: key);
+  const CarbonCalculatorWidget({super.key});
 
   @override
-  _CarbonCalculatorWidgetState createState() => _CarbonCalculatorWidgetState();
+  State<CarbonCalculatorWidget> createState() => _CarbonCalculatorWidgetState();
 }
 
 class _CarbonCalculatorWidgetState extends State<CarbonCalculatorWidget> {
@@ -52,6 +52,8 @@ class _CarbonCalculatorWidgetState extends State<CarbonCalculatorWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'CarbonCalculator',

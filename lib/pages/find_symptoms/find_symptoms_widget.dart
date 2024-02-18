@@ -12,10 +12,10 @@ import 'find_symptoms_model.dart';
 export 'find_symptoms_model.dart';
 
 class FindSymptomsWidget extends StatefulWidget {
-  const FindSymptomsWidget({Key? key}) : super(key: key);
+  const FindSymptomsWidget({super.key});
 
   @override
-  _FindSymptomsWidgetState createState() => _FindSymptomsWidgetState();
+  State<FindSymptomsWidget> createState() => _FindSymptomsWidgetState();
 }
 
 class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
@@ -51,6 +51,8 @@ class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'findSymptoms',
@@ -190,8 +192,7 @@ class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 12.0),
+                            padding: EdgeInsets.all(12.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -254,8 +255,7 @@ class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 12.0),
+                            padding: EdgeInsets.all(12.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -318,8 +318,7 @@ class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 12.0),
+                            padding: EdgeInsets.all(12.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -382,8 +381,7 @@ class _FindSymptomsWidgetState extends State<FindSymptomsWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 12.0, 12.0, 12.0),
+                            padding: EdgeInsets.all(12.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [

@@ -13,10 +13,10 @@ import 'deta_copy_model.dart';
 export 'deta_copy_model.dart';
 
 class DetaCopyWidget extends StatefulWidget {
-  const DetaCopyWidget({Key? key}) : super(key: key);
+  const DetaCopyWidget({super.key});
 
   @override
-  _DetaCopyWidgetState createState() => _DetaCopyWidgetState();
+  State<DetaCopyWidget> createState() => _DetaCopyWidgetState();
 }
 
 class _DetaCopyWidgetState extends State<DetaCopyWidget> {
@@ -58,6 +58,8 @@ class _DetaCopyWidgetState extends State<DetaCopyWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'detaCopy',

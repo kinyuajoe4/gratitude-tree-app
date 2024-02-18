@@ -13,10 +13,10 @@ import 'admin_dashboard_model.dart';
 export 'admin_dashboard_model.dart';
 
 class AdminDashboardWidget extends StatefulWidget {
-  const AdminDashboardWidget({Key? key}) : super(key: key);
+  const AdminDashboardWidget({super.key});
 
   @override
-  _AdminDashboardWidgetState createState() => _AdminDashboardWidgetState();
+  State<AdminDashboardWidget> createState() => _AdminDashboardWidgetState();
 }
 
 class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
@@ -49,6 +49,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'adminDashboard',
@@ -118,7 +120,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'Super Admin',
                                 style: FlutterFlowTheme.of(context)
@@ -518,7 +520,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, -1.00),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 16.0),
@@ -534,8 +536,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 4.0, 4.0, 4.0),
+                                    padding: EdgeInsets.all(4.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -748,8 +749,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          2.0, 2.0, 2.0, 2.0),
+                                      padding: EdgeInsets.all(2.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -864,7 +864,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 1.00),
+                                  alignment: AlignmentDirectional(0.0, 1.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -900,7 +900,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 1.00),
+                                  alignment: AlignmentDirectional(0.0, 1.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -936,7 +936,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 1.00),
+                                  alignment: AlignmentDirectional(0.0, 1.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -972,7 +972,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 1.00),
+                                  alignment: AlignmentDirectional(0.0, 1.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -1008,7 +1008,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 1.00),
+                                  alignment: AlignmentDirectional(0.0, 1.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -1060,7 +1060,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Front',
                                     style: FlutterFlowTheme.of(context)
@@ -1081,7 +1081,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Back',
                                     style: FlutterFlowTheme.of(context)

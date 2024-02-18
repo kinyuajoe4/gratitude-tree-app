@@ -15,10 +15,10 @@ import 'maps_bottom_sheet_model.dart';
 export 'maps_bottom_sheet_model.dart';
 
 class MapsBottomSheetWidget extends StatefulWidget {
-  const MapsBottomSheetWidget({Key? key}) : super(key: key);
+  const MapsBottomSheetWidget({super.key});
 
   @override
-  _MapsBottomSheetWidgetState createState() => _MapsBottomSheetWidgetState();
+  State<MapsBottomSheetWidget> createState() => _MapsBottomSheetWidgetState();
 }
 
 class _MapsBottomSheetWidgetState extends State<MapsBottomSheetWidget> {
@@ -51,6 +51,7 @@ class _MapsBottomSheetWidgetState extends State<MapsBottomSheetWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,

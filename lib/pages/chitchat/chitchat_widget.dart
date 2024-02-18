@@ -18,7 +18,7 @@ export 'chitchat_model.dart';
 
 class ChitchatWidget extends StatefulWidget {
   const ChitchatWidget({
-    Key? key,
+    super.key,
     this.userName,
     this.userEmail,
     this.chatUser,
@@ -29,7 +29,7 @@ class ChitchatWidget extends StatefulWidget {
     this.locall,
     this.sched,
     this.hosp,
-  }) : super(key: key);
+  });
 
   final String? userName;
   final String? userEmail;
@@ -43,7 +43,7 @@ class ChitchatWidget extends StatefulWidget {
   final HospitalsRecord? hosp;
 
   @override
-  _ChitchatWidgetState createState() => _ChitchatWidgetState();
+  State<ChitchatWidget> createState() => _ChitchatWidgetState();
 }
 
 class _ChitchatWidgetState extends State<ChitchatWidget> {
@@ -79,6 +79,8 @@ class _ChitchatWidgetState extends State<ChitchatWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return StreamBuilder<List<ChatsRecord>>(
       stream: queryChatsRecord(
@@ -354,8 +356,7 @@ class _ChitchatWidgetState extends State<ChitchatWidget> {
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -0.15,
-                                                                    0.00),
+                                                                    -0.15, 0.0),
                                                             child:
                                                                 FlutterFlowIconButton(
                                                               borderColor: Colors
@@ -557,12 +558,8 @@ class _ChitchatWidgetState extends State<ChitchatWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0),
+                                                                EdgeInsets.all(
+                                                                    12.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -776,7 +773,7 @@ class _ChitchatWidgetState extends State<ChitchatWidget> {
                                                                     Align(
                                                                       alignment: AlignmentDirectional(
                                                                           -0.45,
-                                                                          0.00),
+                                                                          0.0),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -814,8 +811,8 @@ class _ChitchatWidgetState extends State<ChitchatWidget> {
                                                                         true)
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            -0.10),
+                                                                            0.0,
+                                                                            -0.1),
                                                                         child:
                                                                             Icon(
                                                                           Icons
@@ -982,7 +979,7 @@ class _ChitchatWidgetState extends State<ChitchatWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.90,
+                                                                      0.9,
                                                                       0.85),
                                                               child: Icon(
                                                                 Icons.done_all,

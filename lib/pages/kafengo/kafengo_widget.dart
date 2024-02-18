@@ -16,10 +16,10 @@ import 'kafengo_model.dart';
 export 'kafengo_model.dart';
 
 class KafengoWidget extends StatefulWidget {
-  const KafengoWidget({Key? key}) : super(key: key);
+  const KafengoWidget({super.key});
 
   @override
-  _KafengoWidgetState createState() => _KafengoWidgetState();
+  State<KafengoWidget> createState() => _KafengoWidgetState();
 }
 
 class _KafengoWidgetState extends State<KafengoWidget> {
@@ -56,6 +56,8 @@ class _KafengoWidgetState extends State<KafengoWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'kafengo',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -81,7 +83,7 @@ class _KafengoWidgetState extends State<KafengoWidget> {
                   ),
                 ),
                 child: Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     height: double.infinity,
@@ -94,7 +96,7 @@ class _KafengoWidgetState extends State<KafengoWidget> {
                       children: [
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, -1.00),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
@@ -133,7 +135,7 @@ class _KafengoWidgetState extends State<KafengoWidget> {
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    -0.60, 1.00),
+                                                    -0.6, 1.0),
                                                 child: Text(
                                                   'TUONGEE ',
                                                   textAlign: TextAlign.justify,
@@ -188,7 +190,7 @@ class _KafengoWidgetState extends State<KafengoWidget> {
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, -1.00),
+                                                  0.0, -1.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -282,11 +284,8 @@ class _KafengoWidgetState extends State<KafengoWidget> {
                                                                           ),
                                                                           child:
                                                                               Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
-                                                                                12.0,
-                                                                                12.0,
-                                                                                12.0),
+                                                                            padding:
+                                                                                EdgeInsets.all(12.0),
                                                                             child:
                                                                                 Column(
                                                                               mainAxisSize: MainAxisSize.min,
@@ -411,11 +410,8 @@ class _KafengoWidgetState extends State<KafengoWidget> {
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(12.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:

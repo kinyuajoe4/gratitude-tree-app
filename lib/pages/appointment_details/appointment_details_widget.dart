@@ -20,16 +20,16 @@ export 'appointment_details_model.dart';
 
 class AppointmentDetailsWidget extends StatefulWidget {
   const AppointmentDetailsWidget({
-    Key? key,
+    super.key,
     this.appointmentDetails,
     this.treedetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? appointmentDetails;
   final DocumentReference? treedetails;
 
   @override
-  _AppointmentDetailsWidgetState createState() =>
+  State<AppointmentDetailsWidget> createState() =>
       _AppointmentDetailsWidgetState();
 }
 
@@ -93,6 +93,8 @@ class _AppointmentDetailsWidgetState extends State<AppointmentDetailsWidget>
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return StreamBuilder<MytreesRecord>(
       stream: MytreesRecord.getDocument(widget.treedetails!),

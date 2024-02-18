@@ -15,10 +15,10 @@ import 'add_another_profile_model.dart';
 export 'add_another_profile_model.dart';
 
 class AddAnotherProfileWidget extends StatefulWidget {
-  const AddAnotherProfileWidget({Key? key}) : super(key: key);
+  const AddAnotherProfileWidget({super.key});
 
   @override
-  _AddAnotherProfileWidgetState createState() =>
+  State<AddAnotherProfileWidget> createState() =>
       _AddAnotherProfileWidgetState();
 }
 
@@ -64,6 +64,8 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'addAnotherProfile',
@@ -531,7 +533,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 12.0, 20.0, 0.0),
@@ -541,7 +543,7 @@ class _AddAnotherProfileWidgetState extends State<AddAnotherProfileWidget> {
                           children: [
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FlutterFlowRadioButton(
                                   options: ['Male', 'Female', 'Undisclosed']
                                       .toList(),

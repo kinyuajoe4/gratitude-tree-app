@@ -10,10 +10,10 @@ import 'popo_model.dart';
 export 'popo_model.dart';
 
 class PopoWidget extends StatefulWidget {
-  const PopoWidget({Key? key}) : super(key: key);
+  const PopoWidget({super.key});
 
   @override
-  _PopoWidgetState createState() => _PopoWidgetState();
+  State<PopoWidget> createState() => _PopoWidgetState();
 }
 
 class _PopoWidgetState extends State<PopoWidget> {
@@ -42,8 +42,10 @@ class _PopoWidgetState extends State<PopoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
         child: Container(
@@ -93,7 +95,7 @@ class _PopoWidgetState extends State<PopoWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.00, -1.00),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
@@ -138,7 +140,7 @@ class _PopoWidgetState extends State<PopoWidget> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, -1.00),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),

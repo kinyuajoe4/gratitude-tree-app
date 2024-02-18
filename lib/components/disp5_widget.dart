@@ -13,10 +13,10 @@ import 'disp5_model.dart';
 export 'disp5_model.dart';
 
 class Disp5Widget extends StatefulWidget {
-  const Disp5Widget({Key? key}) : super(key: key);
+  const Disp5Widget({super.key});
 
   @override
-  _Disp5WidgetState createState() => _Disp5WidgetState();
+  State<Disp5Widget> createState() => _Disp5WidgetState();
 }
 
 class _Disp5WidgetState extends State<Disp5Widget>
@@ -68,6 +68,8 @@ class _Disp5WidgetState extends State<Disp5Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 156.0,
       height: 215.0,
@@ -102,8 +104,7 @@ class _Disp5WidgetState extends State<Disp5Widget>
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

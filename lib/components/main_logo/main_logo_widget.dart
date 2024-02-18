@@ -9,10 +9,10 @@ import 'main_logo_model.dart';
 export 'main_logo_model.dart';
 
 class MainLogoWidget extends StatefulWidget {
-  const MainLogoWidget({Key? key}) : super(key: key);
+  const MainLogoWidget({super.key});
 
   @override
-  _MainLogoWidgetState createState() => _MainLogoWidgetState();
+  State<MainLogoWidget> createState() => _MainLogoWidgetState();
 }
 
 class _MainLogoWidgetState extends State<MainLogoWidget> {
@@ -41,6 +41,8 @@ class _MainLogoWidgetState extends State<MainLogoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [

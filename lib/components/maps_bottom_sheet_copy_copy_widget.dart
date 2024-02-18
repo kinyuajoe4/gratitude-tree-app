@@ -16,14 +16,14 @@ export 'maps_bottom_sheet_copy_copy_model.dart';
 
 class MapsBottomSheetCopyCopyWidget extends StatefulWidget {
   const MapsBottomSheetCopyCopyWidget({
-    Key? key,
+    super.key,
     required this.latlong,
-  }) : super(key: key);
+  });
 
   final LatLng? latlong;
 
   @override
-  _MapsBottomSheetCopyCopyWidgetState createState() =>
+  State<MapsBottomSheetCopyCopyWidget> createState() =>
       _MapsBottomSheetCopyCopyWidgetState();
 }
 
@@ -54,6 +54,8 @@ class _MapsBottomSheetCopyCopyWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Stack(
       children: [
         Builder(builder: (context) {

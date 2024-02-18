@@ -35,8 +35,10 @@ class MoreinfoModel extends FlutterFlowModel<MoreinfoWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();

@@ -18,16 +18,16 @@ export 'booking_old_model.dart';
 
 class BookingOldWidget extends StatefulWidget {
   const BookingOldWidget({
-    Key? key,
+    super.key,
     this.userProfile,
     this.location,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
   final FFPlace? location;
 
   @override
-  _BookingOldWidgetState createState() => _BookingOldWidgetState();
+  State<BookingOldWidget> createState() => _BookingOldWidgetState();
 }
 
 class _BookingOldWidgetState extends State<BookingOldWidget> {
@@ -74,6 +74,8 @@ class _BookingOldWidgetState extends State<BookingOldWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: MediaQuery.sizeOf(context).height * 1.0,

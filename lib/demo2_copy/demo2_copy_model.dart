@@ -35,8 +35,10 @@ class Demo2CopyModel extends FlutterFlowModel<Demo2CopyWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();

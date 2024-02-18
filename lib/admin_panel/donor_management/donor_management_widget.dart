@@ -13,10 +13,10 @@ import 'donor_management_model.dart';
 export 'donor_management_model.dart';
 
 class DonorManagementWidget extends StatefulWidget {
-  const DonorManagementWidget({Key? key}) : super(key: key);
+  const DonorManagementWidget({super.key});
 
   @override
-  _DonorManagementWidgetState createState() => _DonorManagementWidgetState();
+  State<DonorManagementWidget> createState() => _DonorManagementWidgetState();
 }
 
 class _DonorManagementWidgetState extends State<DonorManagementWidget> {
@@ -52,6 +52,8 @@ class _DonorManagementWidgetState extends State<DonorManagementWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'donorManagement',
@@ -190,7 +192,7 @@ class _DonorManagementWidgetState extends State<DonorManagementWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');

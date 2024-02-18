@@ -12,10 +12,10 @@ import 'fieldor_trees_model.dart';
 export 'fieldor_trees_model.dart';
 
 class FieldorTreesWidget extends StatefulWidget {
-  const FieldorTreesWidget({Key? key}) : super(key: key);
+  const FieldorTreesWidget({super.key});
 
   @override
-  _FieldorTreesWidgetState createState() => _FieldorTreesWidgetState();
+  State<FieldorTreesWidget> createState() => _FieldorTreesWidgetState();
 }
 
 class _FieldorTreesWidgetState extends State<FieldorTreesWidget> {
@@ -44,6 +44,8 @@ class _FieldorTreesWidgetState extends State<FieldorTreesWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 270.0,
@@ -64,7 +66,7 @@ class _FieldorTreesWidgetState extends State<FieldorTreesWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [

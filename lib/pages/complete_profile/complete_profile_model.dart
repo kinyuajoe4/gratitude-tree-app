@@ -50,8 +50,10 @@ class CompleteProfileModel extends FlutterFlowModel<CompleteProfileWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     yourNameFocusNode?.dispose();

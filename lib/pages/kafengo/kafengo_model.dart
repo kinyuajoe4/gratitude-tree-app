@@ -35,10 +35,12 @@ class KafengoModel extends FlutterFlowModel<KafengoWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     listViewController = ScrollController();
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     listViewController?.dispose();

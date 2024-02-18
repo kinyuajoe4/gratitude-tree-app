@@ -13,10 +13,10 @@ import 'my_appointments_model.dart';
 export 'my_appointments_model.dart';
 
 class MyAppointmentsWidget extends StatefulWidget {
-  const MyAppointmentsWidget({Key? key}) : super(key: key);
+  const MyAppointmentsWidget({super.key});
 
   @override
-  _MyAppointmentsWidgetState createState() => _MyAppointmentsWidgetState();
+  State<MyAppointmentsWidget> createState() => _MyAppointmentsWidgetState();
 }
 
 class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
@@ -49,6 +49,8 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'myAppointments',
@@ -192,8 +194,7 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 12.0, 12.0),
+                                      padding: EdgeInsets.all(12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:

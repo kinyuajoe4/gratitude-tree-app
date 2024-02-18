@@ -14,14 +14,14 @@ export 'treegpt_model.dart';
 
 class TreegptWidget extends StatefulWidget {
   const TreegptWidget({
-    Key? key,
+    super.key,
     this.pasted,
-  }) : super(key: key);
+  });
 
   final String? pasted;
 
   @override
-  _TreegptWidgetState createState() => _TreegptWidgetState();
+  State<TreegptWidget> createState() => _TreegptWidgetState();
 }
 
 class _TreegptWidgetState extends State<TreegptWidget> {
@@ -52,6 +52,8 @@ class _TreegptWidgetState extends State<TreegptWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
       child: Container(
@@ -69,7 +71,7 @@ class _TreegptWidgetState extends State<TreegptWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+          padding: EdgeInsets.all(4.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -126,8 +128,7 @@ class _TreegptWidgetState extends State<TreegptWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
+                              padding: EdgeInsets.all(12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,

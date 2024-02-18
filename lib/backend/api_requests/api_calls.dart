@@ -45,6 +45,7 @@ class SendFullPromptCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -88,6 +89,7 @@ class OpenAimodelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -117,6 +119,7 @@ class TextcompletionCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -165,6 +168,7 @@ class TexteditCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -202,6 +206,7 @@ class ImagegenerationCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -223,18 +228,23 @@ class TreeDetailsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic name(dynamic response) => getJsonField(
+  static List<String>? name(dynamic response) => (getJsonField(
         response,
         r'''$..name''',
         true,
-      );
-  static dynamic image(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? image(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$..image''',
-      );
+      ));
 }
 
 class ApiPagingParams {

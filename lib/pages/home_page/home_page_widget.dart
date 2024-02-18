@@ -30,20 +30,19 @@ export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({
-    Key? key,
+    super.key,
     this.test,
     int? ageYrs,
     int? ageMnths,
   })  : this.ageYrs = ageYrs ?? 0,
-        this.ageMnths = ageMnths ?? 0,
-        super(key: key);
+        this.ageMnths = ageMnths ?? 0;
 
   final AsdfasdfRecord? test;
   final int ageYrs;
   final int ageMnths;
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget>
@@ -176,6 +175,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(currentUserReference!),
       builder: (context, snapshot) {
@@ -232,8 +233,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   borderRadius: BorderRadius.circular(40.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2.0, 2.0, 2.0, 2.0),
+                                  padding: EdgeInsets.all(2.0),
                                   child: AuthUserStreamWidget(
                                     builder: (context) => Hero(
                                       tag: currentUserPhoto,
@@ -473,9 +473,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 12.0),
+                                              padding: EdgeInsets.all(12.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -756,14 +754,58 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  'Metrics',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Outfit',
-                                        fontSize: 16.0,
+                                StreamBuilder<List<CountriesRecord>>(
+                                  stream: queryCountriesRecord(
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 42.0,
+                                          height: 42.0,
+                                          child: SpinKitCircle(
+                                            color: Color(0xFF2EFB26),
+                                            size: 42.0,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<CountriesRecord>
+                                        textCountriesRecordList =
+                                        snapshot.data!;
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final textCountriesRecord =
+                                        textCountriesRecordList.isNotEmpty
+                                            ? textCountriesRecordList.first
+                                            : null;
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context
+                                            .pushNamed('searchcountriespage');
+                                      },
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          textCountriesRecord?.selectedCountry,
+                                          'not county bro',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              fontSize: 16.0,
+                                            ),
                                       ),
+                                    );
+                                  },
                                 ),
                               ],
                             ).animateOnPageLoad(
@@ -921,11 +963,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          16.0,
-                                                                          16.0,
+                                                                  EdgeInsets
+                                                                      .all(
                                                                           16.0),
                                                               child: Column(
                                                                 mainAxisSize:
@@ -1210,12 +1249,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0),
+                                                                EdgeInsets.all(
+                                                                    16.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -1482,12 +1517,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             16.0),
                                                               ),
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0),
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            16.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -1759,12 +1792,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0,
-                                                                        16.0),
+                                                                EdgeInsets.all(
+                                                                    16.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize

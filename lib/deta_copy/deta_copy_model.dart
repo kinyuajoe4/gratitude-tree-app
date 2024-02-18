@@ -30,8 +30,10 @@ class DetaCopyModel extends FlutterFlowModel<DetaCopyWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     treeNameFocusNode?.dispose();

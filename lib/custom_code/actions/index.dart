@@ -11,3 +11,6 @@ export 'age_in_years.dart' show ageInYears;
 export 'time_difference_in_days.dart' show timeDifferenceInDays;
 export 'time_difference_in_months.dart' show timeDifferenceInMonths;
 export 'add_ten_action.dart' show addTenAction;
+export 'divide_two_double_numbers.dart' show divideTwoDoubleNumbers;
+export 'multiply_two_double_numbers.dart' show multiplyTwoDoubleNumbers;
+export 'add_two_double_numbers.dart' show addTwoDoubleNumbers;

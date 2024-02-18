@@ -10,10 +10,10 @@ import 'farms_mgt_model.dart';
 export 'farms_mgt_model.dart';
 
 class FarmsMgtWidget extends StatefulWidget {
-  const FarmsMgtWidget({Key? key}) : super(key: key);
+  const FarmsMgtWidget({super.key});
 
   @override
-  _FarmsMgtWidgetState createState() => _FarmsMgtWidgetState();
+  State<FarmsMgtWidget> createState() => _FarmsMgtWidgetState();
 }
 
 class _FarmsMgtWidgetState extends State<FarmsMgtWidget> {
@@ -46,6 +46,8 @@ class _FarmsMgtWidgetState extends State<FarmsMgtWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'farmsMgt',

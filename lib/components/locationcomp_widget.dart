@@ -13,14 +13,14 @@ export 'locationcomp_model.dart';
 
 class LocationcompWidget extends StatefulWidget {
   const LocationcompWidget({
-    Key? key,
+    super.key,
     this.treeLocationLatlong,
-  }) : super(key: key);
+  });
 
   final LatLng? treeLocationLatlong;
 
   @override
-  _LocationcompWidgetState createState() => _LocationcompWidgetState();
+  State<LocationcompWidget> createState() => _LocationcompWidgetState();
 }
 
 class _LocationcompWidgetState extends State<LocationcompWidget> {
@@ -49,8 +49,10 @@ class _LocationcompWidgetState extends State<LocationcompWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+      padding: EdgeInsets.all(16.0),
       child: Container(
         width: 190.0,
         height: 190.0,

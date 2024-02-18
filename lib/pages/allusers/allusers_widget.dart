@@ -15,10 +15,10 @@ import 'allusers_model.dart';
 export 'allusers_model.dart';
 
 class AllusersWidget extends StatefulWidget {
-  const AllusersWidget({Key? key}) : super(key: key);
+  const AllusersWidget({super.key});
 
   @override
-  _AllusersWidgetState createState() => _AllusersWidgetState();
+  State<AllusersWidget> createState() => _AllusersWidgetState();
 }
 
 class _AllusersWidgetState extends State<AllusersWidget> {
@@ -55,6 +55,8 @@ class _AllusersWidgetState extends State<AllusersWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'allusers',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -69,7 +71,7 @@ class _AllusersWidgetState extends State<AllusersWidget> {
               backgroundColor: Color(0xFF111417),
               automaticallyImplyLeading: false,
               title: Text(
-                'Communities & health professionals',
+                'Communities ',
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
@@ -91,8 +93,7 @@ class _AllusersWidgetState extends State<AllusersWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 24.0, 24.0, 24.0),
+                          padding: EdgeInsets.all(24.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -523,13 +524,8 @@ class _AllusersWidgetState extends State<AllusersWidget> {
                                                                 .circular(10.0),
                                                       ),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    16.0,
-                                                                    16.0,
-                                                                    16.0),
+                                                        padding: EdgeInsets.all(
+                                                            16.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,

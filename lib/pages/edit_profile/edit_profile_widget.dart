@@ -19,14 +19,14 @@ export 'edit_profile_model.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
-    Key? key,
+    super.key,
     this.userProfile,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
 
   @override
-  _EditProfileWidgetState createState() => _EditProfileWidgetState();
+  State<EditProfileWidget> createState() => _EditProfileWidgetState();
 }
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
@@ -75,6 +75,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return StreamBuilder<UsersRecord>(
       stream: UsersRecord.getDocument(currentUserReference!),

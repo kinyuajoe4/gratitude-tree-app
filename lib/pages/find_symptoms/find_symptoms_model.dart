@@ -22,10 +22,12 @@ class FindSymptomsModel extends FlutterFlowModel<FindSymptomsWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     mainLogoModel = createModel(context, () => MainLogoModel());
   }
 
+  @override
   void dispose() {
     mainLogoModel.dispose();
     searchFieldFocusNode?.dispose();

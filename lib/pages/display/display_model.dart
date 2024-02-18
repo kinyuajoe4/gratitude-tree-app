@@ -11,8 +11,10 @@ import 'package:provider/provider.dart';
 class DisplayModel extends FlutterFlowModel<DisplayWidget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

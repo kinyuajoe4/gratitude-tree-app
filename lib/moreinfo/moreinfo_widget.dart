@@ -17,18 +17,18 @@ export 'moreinfo_model.dart';
 
 class MoreinfoWidget extends StatefulWidget {
   const MoreinfoWidget({
-    Key? key,
+    super.key,
     this.name,
     this.treeImage,
     this.description,
-  }) : super(key: key);
+  });
 
   final String? name;
   final String? treeImage;
   final String? description;
 
   @override
-  _MoreinfoWidgetState createState() => _MoreinfoWidgetState();
+  State<MoreinfoWidget> createState() => _MoreinfoWidgetState();
 }
 
 class _MoreinfoWidgetState extends State<MoreinfoWidget>
@@ -133,6 +133,8 @@ class _MoreinfoWidgetState extends State<MoreinfoWidget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'moreinfo',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -164,8 +166,7 @@ class _MoreinfoWidgetState extends State<MoreinfoWidget>
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation']!),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 24.0, 24.0, 24.0),
+                          padding: EdgeInsets.all(24.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,8 +216,7 @@ class _MoreinfoWidgetState extends State<MoreinfoWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  4.0, 4.0, 4.0, 4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -283,9 +283,7 @@ class _MoreinfoWidgetState extends State<MoreinfoWidget>
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(12.0, 12.0,
-                                                          12.0, 12.0),
+                                                  padding: EdgeInsets.all(12.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.min,

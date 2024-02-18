@@ -26,16 +26,16 @@ export 'demo2_model.dart';
 
 class Demo2Widget extends StatefulWidget {
   const Demo2Widget({
-    Key? key,
+    super.key,
     this.treedetails,
     this.userorof,
-  }) : super(key: key);
+  });
 
   final FielddetailsRecord? treedetails;
   final DocumentReference? userorof;
 
   @override
-  _Demo2WidgetState createState() => _Demo2WidgetState();
+  State<Demo2Widget> createState() => _Demo2WidgetState();
 }
 
 class _Demo2WidgetState extends State<Demo2Widget>
@@ -358,6 +358,8 @@ class _Demo2WidgetState extends State<Demo2Widget>
       );
     }
 
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<MytreesRecord>>(
       stream: queryMytreesRecord(
         parent: widget.treedetails?.reference,
@@ -588,9 +590,7 @@ class _Demo2WidgetState extends State<Demo2Widget>
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(12.0, 12.0,
-                                                          12.0, 12.0),
+                                                  padding: EdgeInsets.all(12.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,

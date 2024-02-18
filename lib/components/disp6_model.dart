@@ -14,8 +14,10 @@ import 'package:provider/provider.dart';
 class Disp6Model extends FlutterFlowModel<Disp6Widget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

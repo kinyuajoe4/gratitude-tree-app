@@ -9,10 +9,10 @@ import 'empty_list_copy_model.dart';
 export 'empty_list_copy_model.dart';
 
 class EmptyListCopyWidget extends StatefulWidget {
-  const EmptyListCopyWidget({Key? key}) : super(key: key);
+  const EmptyListCopyWidget({super.key});
 
   @override
-  _EmptyListCopyWidgetState createState() => _EmptyListCopyWidgetState();
+  State<EmptyListCopyWidget> createState() => _EmptyListCopyWidgetState();
 }
 
 class _EmptyListCopyWidgetState extends State<EmptyListCopyWidget> {
@@ -41,6 +41,8 @@ class _EmptyListCopyWidgetState extends State<EmptyListCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,

@@ -19,10 +19,12 @@ class VisitationTabModel extends FlutterFlowModel<VisitationTabWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     monitorTempModel = createModel(context, () => MonitorTempModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     monitorTempModel.dispose();

@@ -13,14 +13,14 @@ export 'appointment_details_profile_model.dart';
 
 class AppointmentDetailsProfileWidget extends StatefulWidget {
   const AppointmentDetailsProfileWidget({
-    Key? key,
+    super.key,
     this.appointmentDetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? appointmentDetails;
 
   @override
-  _AppointmentDetailsProfileWidgetState createState() =>
+  State<AppointmentDetailsProfileWidget> createState() =>
       _AppointmentDetailsProfileWidgetState();
 }
 
@@ -55,6 +55,8 @@ class _AppointmentDetailsProfileWidgetState
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return StreamBuilder<AppointmentsRecord>(
       stream: AppointmentsRecord.getDocument(widget.appointmentDetails!),

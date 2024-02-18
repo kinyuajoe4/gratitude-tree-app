@@ -20,16 +20,16 @@ export 'treedetailsfromvisitatationtab_model.dart';
 
 class TreedetailsfromvisitatationtabWidget extends StatefulWidget {
   const TreedetailsfromvisitatationtabWidget({
-    Key? key,
+    super.key,
     this.appointmentDetails,
     this.treedetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? appointmentDetails;
   final DocumentReference? treedetails;
 
   @override
-  _TreedetailsfromvisitatationtabWidgetState createState() =>
+  State<TreedetailsfromvisitatationtabWidget> createState() =>
       _TreedetailsfromvisitatationtabWidgetState();
 }
 
@@ -94,6 +94,8 @@ class _TreedetailsfromvisitatationtabWidgetState
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return StreamBuilder<MytreesRecord>(
       stream: MytreesRecord.getDocument(widget.treedetails!),

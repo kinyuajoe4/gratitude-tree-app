@@ -17,12 +17,12 @@ export 'booking_old_copy_model.dart';
 
 class BookingOldCopyWidget extends StatefulWidget {
   const BookingOldCopyWidget({
-    Key? key,
+    super.key,
     this.userProfile,
     this.location,
     this.latitudeLongitude,
     this.treedetails,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userProfile;
   final FFPlace? location;
@@ -30,7 +30,7 @@ class BookingOldCopyWidget extends StatefulWidget {
   final DocumentReference? treedetails;
 
   @override
-  _BookingOldCopyWidgetState createState() => _BookingOldCopyWidgetState();
+  State<BookingOldCopyWidget> createState() => _BookingOldCopyWidgetState();
 }
 
 class _BookingOldCopyWidgetState extends State<BookingOldCopyWidget> {
@@ -73,6 +73,8 @@ class _BookingOldCopyWidgetState extends State<BookingOldCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<MytreesRecord>>(
       stream: queryMytreesRecord(
         parent: widget.treedetails,

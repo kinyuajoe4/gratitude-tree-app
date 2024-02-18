@@ -15,14 +15,14 @@ export 'activeusers_model.dart';
 
 class ActiveusersWidget extends StatefulWidget {
   const ActiveusersWidget({
-    Key? key,
+    super.key,
     this.search,
-  }) : super(key: key);
+  });
 
   final String? search;
 
   @override
-  _ActiveusersWidgetState createState() => _ActiveusersWidgetState();
+  State<ActiveusersWidget> createState() => _ActiveusersWidgetState();
 }
 
 class _ActiveusersWidgetState extends State<ActiveusersWidget> {
@@ -58,6 +58,8 @@ class _ActiveusersWidgetState extends State<ActiveusersWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'activeusers',
@@ -283,9 +285,7 @@ class _ActiveusersWidgetState extends State<ActiveusersWidget> {
                                                   BorderRadius.circular(10.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 16.0, 16.0, 16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -463,9 +463,7 @@ class _ActiveusersWidgetState extends State<ActiveusersWidget> {
                                                           10.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(16.0, 16.0,
-                                                          16.0, 16.0),
+                                                  padding: EdgeInsets.all(16.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,

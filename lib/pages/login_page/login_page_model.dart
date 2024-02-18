@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -27,29 +29,15 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   TextEditingController? passwordLoginController;
   late bool passwordLoginVisibility;
   String? Function(BuildContext, String?)? passwordLoginControllerValidator;
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode;
-  TextEditingController? emailAddressController;
-  String? Function(BuildContext, String?)? emailAddressControllerValidator;
-  // State field(s) for password-Create widget.
-  FocusNode? passwordCreateFocusNode;
-  TextEditingController? passwordCreateController;
-  late bool passwordCreateVisibility;
-  String? Function(BuildContext, String?)? passwordCreateControllerValidator;
-  // State field(s) for passwordConfirm widget.
-  FocusNode? passwordConfirmFocusNode;
-  TextEditingController? passwordConfirmController;
-  late bool passwordConfirmVisibility;
-  String? Function(BuildContext, String?)? passwordConfirmControllerValidator;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     passwordLoginVisibility = false;
-    passwordCreateVisibility = false;
-    passwordConfirmVisibility = false;
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
@@ -58,15 +46,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
     passwordLoginFocusNode?.dispose();
     passwordLoginController?.dispose();
-
-    emailAddressFocusNode?.dispose();
-    emailAddressController?.dispose();
-
-    passwordCreateFocusNode?.dispose();
-    passwordCreateController?.dispose();
-
-    passwordConfirmFocusNode?.dispose();
-    passwordConfirmController?.dispose();
   }
 
   /// Action blocks are added here.

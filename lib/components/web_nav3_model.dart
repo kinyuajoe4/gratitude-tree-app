@@ -14,8 +14,10 @@ import 'package:provider/provider.dart';
 class WebNav3Model extends FlutterFlowModel<WebNav3Widget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

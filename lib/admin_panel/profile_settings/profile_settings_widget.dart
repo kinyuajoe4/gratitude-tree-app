@@ -16,10 +16,10 @@ import 'profile_settings_model.dart';
 export 'profile_settings_model.dart';
 
 class ProfileSettingsWidget extends StatefulWidget {
-  const ProfileSettingsWidget({Key? key}) : super(key: key);
+  const ProfileSettingsWidget({super.key});
 
   @override
-  _ProfileSettingsWidgetState createState() => _ProfileSettingsWidgetState();
+  State<ProfileSettingsWidget> createState() => _ProfileSettingsWidgetState();
 }
 
 class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
@@ -61,6 +61,8 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'ProfileSettings',
@@ -189,8 +191,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                             shape: BoxShape.circle,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                2.0, 2.0, 2.0, 2.0),
+                            padding: EdgeInsets.all(2.0),
                             child: Container(
                               width: 90.0,
                               height: 90.0,
@@ -451,7 +452,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.05),
+                  alignment: AlignmentDirectional(0.0, 0.05),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),

@@ -1,8 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/disp1_widget.dart';
-import '/components/disp2_widget.dart';
-import '/components/disp3/disp3_widget.dart';
-import '/components/disp4_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -15,10 +11,10 @@ import 'forgot_password_model.dart';
 export 'forgot_password_model.dart';
 
 class ForgotPasswordWidget extends StatefulWidget {
-  const ForgotPasswordWidget({Key? key}) : super(key: key);
+  const ForgotPasswordWidget({super.key});
 
   @override
-  _ForgotPasswordWidgetState createState() => _ForgotPasswordWidgetState();
+  State<ForgotPasswordWidget> createState() => _ForgotPasswordWidgetState();
 }
 
 class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
@@ -55,6 +51,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
       );
     }
 
+    context.watch<FFAppState>();
+
     return Title(
         title: 'forgotPassword',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -89,14 +87,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           body: Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fitWidth,
-                image: Image.asset(
-                  'assets/images/page_bg_transparent@2x.png',
-                ).image,
-              ),
-            ),
+            decoration: BoxDecoration(),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -209,26 +200,6 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                         borderRadius: BorderRadius.circular(40.0),
                       ),
                     ),
-                  ),
-                  wrapWithModel(
-                    model: _model.disp1Model,
-                    updateCallback: () => setState(() {}),
-                    child: Disp1Widget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.disp2Model,
-                    updateCallback: () => setState(() {}),
-                    child: Disp2Widget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.disp3Model,
-                    updateCallback: () => setState(() {}),
-                    child: Disp3Widget(),
-                  ),
-                  wrapWithModel(
-                    model: _model.disp4Model,
-                    updateCallback: () => setState(() {}),
-                    child: Disp4Widget(),
                   ),
                 ],
               ),

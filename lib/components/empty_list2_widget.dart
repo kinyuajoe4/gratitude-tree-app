@@ -11,10 +11,10 @@ import 'empty_list2_model.dart';
 export 'empty_list2_model.dart';
 
 class EmptyList2Widget extends StatefulWidget {
-  const EmptyList2Widget({Key? key}) : super(key: key);
+  const EmptyList2Widget({super.key});
 
   @override
-  _EmptyList2WidgetState createState() => _EmptyList2WidgetState();
+  State<EmptyList2Widget> createState() => _EmptyList2WidgetState();
 }
 
 class _EmptyList2WidgetState extends State<EmptyList2Widget> {
@@ -43,6 +43,8 @@ class _EmptyList2WidgetState extends State<EmptyList2Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,

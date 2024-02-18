@@ -22,12 +22,12 @@ export 'edit_tree_details_model.dart';
 
 class EditTreeDetailsWidget extends StatefulWidget {
   const EditTreeDetailsWidget({
-    Key? key,
+    super.key,
     this.userAppointment,
     this.location,
     this.latitudeLongitude,
     this.userTress,
-  }) : super(key: key);
+  });
 
   final AppointmentsRecord? userAppointment;
   final FFPlace? location;
@@ -35,7 +35,7 @@ class EditTreeDetailsWidget extends StatefulWidget {
   final MytreesRecord? userTress;
 
   @override
-  _EditTreeDetailsWidgetState createState() => _EditTreeDetailsWidgetState();
+  State<EditTreeDetailsWidget> createState() => _EditTreeDetailsWidgetState();
 }
 
 class _EditTreeDetailsWidgetState extends State<EditTreeDetailsWidget> {
@@ -74,6 +74,8 @@ class _EditTreeDetailsWidgetState extends State<EditTreeDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(
@@ -117,7 +119,7 @@ class _EditTreeDetailsWidgetState extends State<EditTreeDetailsWidget> {
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.00, -1.00),
+                          alignment: AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),

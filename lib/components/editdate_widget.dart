@@ -17,14 +17,14 @@ export 'editdate_model.dart';
 
 class EditdateWidget extends StatefulWidget {
   const EditdateWidget({
-    Key? key,
+    super.key,
     this.treedetail,
-  }) : super(key: key);
+  });
 
   final MytreesRecord? treedetail;
 
   @override
-  _EditdateWidgetState createState() => _EditdateWidgetState();
+  State<EditdateWidget> createState() => _EditdateWidgetState();
 }
 
 class _EditdateWidgetState extends State<EditdateWidget>
@@ -90,6 +90,8 @@ class _EditdateWidgetState extends State<EditdateWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
       child: InkWell(

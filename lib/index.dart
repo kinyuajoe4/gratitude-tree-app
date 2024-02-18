@@ -31,7 +31,7 @@ export '/carbon_calculator/carbon_calculator_widget.dart'
     show CarbonCalculatorWidget;
 export '/activities/activities_widget.dart' show ActivitiesWidget;
 export '/tokenpage/tokenpage_widget.dart' show TokenpageWidget;
-export '/demo/demo_widget.dart' show DemoWidget;
+export '/learningpage/learningpage_widget.dart' show LearningpageWidget;
 export '/admin_panel/admin_dashboard/admin_dashboard_widget.dart'
     show AdminDashboardWidget;
 export '/admin_panel/admin_settings/admin_settings_widget.dart'
@@ -50,3 +50,28 @@ export '/pages/treedetailsfromvisitatationtab/treedetailsfromvisitatationtab_wid
     show TreedetailsfromvisitatationtabWidget;
 export '/demo2_copy/demo2_copy_widget.dart' show Demo2CopyWidget;
 export '/fieldmaps/fieldmaps_widget.dart' show FieldmapsWidget;
+export '/confirmcountry/confirmcountry_widget.dart' show ConfirmcountryWidget;
+export '/searchcountriespage/searchcountriespage_widget.dart'
+    show SearchcountriespageWidget;
+export '/offseteachcountry/offseteachcountry_widget.dart'
+    show OffseteachcountryWidget;
+export '/chatsamplepage/chatsamplepage_widget.dart' show ChatsamplepageWidget;
+export '/describediet/describediet_widget.dart' show DescribedietWidget;
+export '/describetravel/describetravel_widget.dart' show DescribetravelWidget;
+export '/testpage/testpage_widget.dart' show TestpageWidget;
+export '/describe_vehiclemovement/describe_vehiclemovement_widget.dart'
+    show DescribeVehiclemovementWidget;
+export '/describe_shopping/describe_shopping_widget.dart'
+    show DescribeShoppingWidget;
+export '/describe_fuel/describe_fuel_widget.dart' show DescribeFuelWidget;
+export '/describe_home/describe_home_widget.dart' show DescribeHomeWidget;
+export '/describe_people_inyour_home/describe_people_inyour_home_widget.dart'
+    show DescribePeopleInyourHomeWidget;
+export '/describe_electricity/describe_electricity_widget.dart'
+    show DescribeElectricityWidget;
+export '/describefinal/describefinal_widget.dart' show DescribefinalWidget;
+export '/pages/registerpage/registerpage_widget.dart' show RegisterpageWidget;
+export '/intro1/intro1_widget.dart' show Intro1Widget;
+export '/activities_copy/activities_copy_widget.dart' show ActivitiesCopyWidget;
+export '/select_project/select_project_widget.dart' show SelectProjectWidget;
+export '/projectlist/projectlist_widget.dart' show ProjectlistWidget;

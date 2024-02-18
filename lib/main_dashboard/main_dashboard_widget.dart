@@ -10,10 +10,10 @@ import 'main_dashboard_model.dart';
 export 'main_dashboard_model.dart';
 
 class MainDashboardWidget extends StatefulWidget {
-  const MainDashboardWidget({Key? key}) : super(key: key);
+  const MainDashboardWidget({super.key});
 
   @override
-  _MainDashboardWidgetState createState() => _MainDashboardWidgetState();
+  State<MainDashboardWidget> createState() => _MainDashboardWidgetState();
 }
 
 class _MainDashboardWidgetState extends State<MainDashboardWidget> {
@@ -46,6 +46,8 @@ class _MainDashboardWidgetState extends State<MainDashboardWidget> {
         ),
       );
     }
+
+    context.watch<FFAppState>();
 
     return Title(
         title: 'mainDashboard',

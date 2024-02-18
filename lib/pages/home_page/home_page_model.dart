@@ -37,11 +37,13 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     disp5Model = createModel(context, () => Disp5Model());
     disp6Model = createModel(context, () => Disp6Model());
   }
 
+  @override
   void dispose() {
     disp5Model.dispose();
     disp6Model.dispose();

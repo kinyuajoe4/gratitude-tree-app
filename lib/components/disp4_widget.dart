@@ -13,10 +13,10 @@ import 'disp4_model.dart';
 export 'disp4_model.dart';
 
 class Disp4Widget extends StatefulWidget {
-  const Disp4Widget({Key? key}) : super(key: key);
+  const Disp4Widget({super.key});
 
   @override
-  _Disp4WidgetState createState() => _Disp4WidgetState();
+  State<Disp4Widget> createState() => _Disp4WidgetState();
 }
 
 class _Disp4WidgetState extends State<Disp4Widget>
@@ -68,13 +68,15 @@ class _Disp4WidgetState extends State<Disp4Widget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       decoration: BoxDecoration(
         color: Color(0xFF4C5A81),
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
